@@ -26,11 +26,11 @@ export const sendOrderWithUserId = createAsyncThunk(
   }
 );
 
-export const getOrdersByFilter = createAsyncThunk(
-  'getOrdersByFilter',
-  async (formData, { rejectWithValue }) => {
+export const getOrdersByUserId = createAsyncThunk(
+  'getOrdersByUserId',
+  async (userId, { rejectWithValue }) => {
     try {
-      const data = await API.orders.getOrdersByFilter(formData);
+      const data = await API.orders.getOrdersByUserId(userId);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -38,21 +38,21 @@ export const getOrdersByFilter = createAsyncThunk(
   }
 );
 
-export const getOrdersByFilterWithPagination = createAsyncThunk(
-  'getOrdersByFilterWithPagination',
-  async (formData, { rejectWithValue }) => {
-    try {
-      const data = await API.orders.getOrdersByFilterWithPagination(formData);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
-);
+// export const getOrdersByFilterWithPagination = createAsyncThunk(
+//   'getOrdersByFilterWithPagination',
+//   async (formData, { rejectWithValue }) => {
+//     try {
+//       const data = await API.orders.getOrdersByFilterWithPagination(formData);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error);
+//     }
+//   }
+// );
 
 export const ordersActions = [
   sendFirstOrder,
   sendOrderWithUserId,
-  getOrdersByFilter,
-  getOrdersByFilterWithPagination,
+  getOrdersByUserId,
+  // getOrdersByFilterWithPagination,
 ];

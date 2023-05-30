@@ -8,3 +8,5 @@ export const nameMessages = {
 export const phoneMessage = 'Invalid phone format';
 
 export const emailMessage = 'Invalid email format';
+
+export const codeMessage = 'Must contain digist only';

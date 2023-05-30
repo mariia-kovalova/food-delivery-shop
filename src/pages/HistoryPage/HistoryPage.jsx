@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
 import { schema } from './schema';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useUser } from 'hooks/useUser';
-import { getOrdersByFilter } from 'redux/orders/thunks';
+import { getOrdersByUserId } from 'redux/orders/thunks';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
 import { SearchInput } from 'shared/components/SearchInput';
@@ -28,8 +28,14 @@ const DELAY = 500;
 
 const HistoryPage = () => {
   const { id: userId } = useUser();
+  const [code, setCode] = useState('');
   const { items, isLoading, error } = useOrders();
   const dispatch = useDispatch();
+
+  const filteredItems = useMemo(
+    () => (code ? items.filter(item => item.info.id === code) : items),
+    [code, items]
+  );
 
   const {
     register,
@@ -41,13 +47,12 @@ const HistoryPage = () => {
   });
 
   useEffect(() => {
-    if (userId) dispatch(getOrdersByFilter({ id: userId }));
+    if (userId) dispatch(getOrdersByUserId({ id: userId }));
   }, [dispatch, userId]);
 
   const handleSearch = debounce(async ({ target }) => {
     const code = target.value.trim();
-    if (code === '') return;
-    dispatch(getOrdersByFilter({ id: userId, code }));
+    setCode(code);
   }, DELAY);
 
   const showList = items.length > 0 && !isLoading && !error;
@@ -76,7 +81,7 @@ const HistoryPage = () => {
             />
           </Tooltip>
           {isLoading && <Loader />}
-          {showList && <History items={items} />}
+          {showList && <History items={filteredItems} />}
           {showEmpty && <Info> Your history is empty</Info>}
           {showError && <Info>{oops}</Info>}
         </Container>

@@ -17,7 +17,7 @@ import { UserForm } from 'modules/UserForm';
 import { useEffect, useState } from 'react';
 import { formId } from 'modules/UserForm/inputs';
 import { useDispatch } from 'react-redux';
-import { getOrdersByFilter } from 'redux/orders/thunks';
+import { getOrdersByUserId } from 'redux/orders/thunks';
 import { useUser } from 'hooks/useUser';
 
 const CartPage = () => {
@@ -27,7 +27,7 @@ const CartPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (id) dispatch(getOrdersByFilter({ id }));
+    if (id) dispatch(getOrdersByUserId({ id }));
   }, [dispatch, id]);
 
   useEffect(() => {
