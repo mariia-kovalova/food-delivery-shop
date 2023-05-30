@@ -33,7 +33,10 @@ const HistoryPage = () => {
   const dispatch = useDispatch();
 
   const filteredItems = useMemo(
-    () => (code ? items.filter(item => item.info.id === code) : items),
+    () =>
+      code
+        ? items.filter(item => item.info.id.toString().includes(code))
+        : items,
     [code, items]
   );
 
