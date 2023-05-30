@@ -29,7 +29,7 @@ const ShopPage = () => {
   return (
     <>
       <Helmet>
-        <title>Food Delivery App</title>
+        <title>Food Delivery</title>
       </Helmet>
       <Section>
         <Container>
