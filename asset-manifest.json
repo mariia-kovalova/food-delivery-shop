@@ -1,13 +1,38 @@
 {
   "files": {
-    "main.css": "/food-delivery-shop/static/css/main.7acaea2f.css",
-    "main.js": "/food-delivery-shop/static/js/main.07d3183d.js",
-    "index.html": "/food-delivery-shop/index.html",
-    "main.7acaea2f.css.map": "/food-delivery-shop/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/food-delivery-shop/static/js/main.07d3183d.js.map"
+    "main.css": "/static/css/main.7441f78b.css",
+    "main.js": "/static/js/main.9f72742f.js",
+    "static/js/413.28121b96.chunk.js": "/static/js/413.28121b96.chunk.js",
+    "static/js/477.b5ec3ac3.chunk.js": "/static/js/477.b5ec3ac3.chunk.js",
+    "static/js/94.065f66ad.chunk.js": "/static/js/94.065f66ad.chunk.js",
+    "static/js/288.26148b13.chunk.js": "/static/js/288.26148b13.chunk.js",
+    "static/js/1.945570e6.chunk.js": "/static/js/1.945570e6.chunk.js",
+    "static/js/199.e824a467.chunk.js": "/static/js/199.e824a467.chunk.js",
+    "static/js/286.6cb3fa25.chunk.js": "/static/js/286.6cb3fa25.chunk.js",
+    "static/media/montserrat-latin-400-normal.woff": "/static/media/montserrat-latin-400-normal.0f1794a79a689a577c2a.woff",
+    "static/media/montserrat-latin-ext-400-normal.woff": "/static/media/montserrat-latin-ext-400-normal.688aee1c9dd2450dd804.woff",
+    "static/media/montserrat-latin-400-normal.woff2": "/static/media/montserrat-latin-400-normal.acb6629fe45c43ad5d8b.woff2",
+    "static/media/montserrat-cyrillic-ext-400-normal.woff": "/static/media/montserrat-cyrillic-ext-400-normal.4ae7c395ed6c62e4293a.woff",
+    "static/media/montserrat-cyrillic-400-normal.woff": "/static/media/montserrat-cyrillic-400-normal.be1d5ffb1cc104d1437d.woff",
+    "static/media/montserrat-latin-ext-400-normal.woff2": "/static/media/montserrat-latin-ext-400-normal.0204ec08a4b574088f02.woff2",
+    "static/media/montserrat-cyrillic-ext-400-normal.woff2": "/static/media/montserrat-cyrillic-ext-400-normal.bbf9e820a2563aac0d8b.woff2",
+    "static/media/sprite.svg": "/static/media/sprite.e50c609891268d2ec58f4df9033d37f7.svg",
+    "static/media/montserrat-cyrillic-400-normal.woff2": "/static/media/montserrat-cyrillic-400-normal.e5c5c19c23e370a342c8.woff2",
+    "static/media/montserrat-vietnamese-400-normal.woff": "/static/media/montserrat-vietnamese-400-normal.f36d8e9e08c584303451.woff",
+    "static/media/montserrat-vietnamese-400-normal.woff2": "/static/media/montserrat-vietnamese-400-normal.8f3f4c99eb0eeb5990f1.woff2",
+    "index.html": "/index.html",
+    "main.7441f78b.css.map": "/static/css/main.7441f78b.css.map",
+    "main.9f72742f.js.map": "/static/js/main.9f72742f.js.map",
+    "413.28121b96.chunk.js.map": "/static/js/413.28121b96.chunk.js.map",
+    "477.b5ec3ac3.chunk.js.map": "/static/js/477.b5ec3ac3.chunk.js.map",
+    "94.065f66ad.chunk.js.map": "/static/js/94.065f66ad.chunk.js.map",
+    "288.26148b13.chunk.js.map": "/static/js/288.26148b13.chunk.js.map",
+    "1.945570e6.chunk.js.map": "/static/js/1.945570e6.chunk.js.map",
+    "199.e824a467.chunk.js.map": "/static/js/199.e824a467.chunk.js.map",
+    "286.6cb3fa25.chunk.js.map": "/static/js/286.6cb3fa25.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.7441f78b.css",
+    "static/js/main.9f72742f.js"
   ]
 }
