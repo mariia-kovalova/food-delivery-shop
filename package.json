@@ -2,7 +2,7 @@
   "name": "food-delivery-shop",
   "version": "0.1.0",
   "private": true,
-  "WelcomePage": "https://mariia-kovalova.github.io/food-delivery-shop/",
+  "homepage": "https://mariia-kovalova.github.io/food-delivery-shop/",
   "dependencies": {
     "@emotion/css": "^11.11.0",
     "@emotion/react": "^11.11.0",
