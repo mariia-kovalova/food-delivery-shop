@@ -46,7 +46,10 @@ export const SubmitWrap = styled.div`
 
   margin-left: auto;
   padding: 20px;
-  width: calc(50% - 20px);
+
+  @media (min-width: ${tablet}) {
+    width: calc(50% - 20px);
+  }
 `;
 
 export const Price = styled.div`
