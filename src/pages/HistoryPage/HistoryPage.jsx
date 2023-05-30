@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
-import { schema } from './schema';
 import { useEffect, useMemo, useState } from 'react';
 import { useUser } from 'hooks/useUser';
 import { getOrdersByUserId } from 'redux/orders/thunks';
@@ -18,6 +17,7 @@ import { useOrders } from 'hooks/useOrders';
 import { Loader } from 'shared/components/Loader';
 import { oops } from 'shared/constants/errorText';
 import { Info } from 'pages/CartPage/CartPage.styled';
+import { schema } from './schema';
 
 const searchInput = {
   inputName: 'code',
