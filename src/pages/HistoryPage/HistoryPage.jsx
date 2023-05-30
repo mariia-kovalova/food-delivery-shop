@@ -1,23 +1,22 @@
+import { useEffect, useMemo, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { nanoid } from '@reduxjs/toolkit';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
-import { useEffect, useMemo, useState } from 'react';
 import { useUser } from 'hooks/useUser';
 import { getOrdersByUserId } from 'redux/orders/thunks';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
 import { SearchInput } from 'shared/components/SearchInput';
-import { Tooltip } from 'shared/components/ToolTip';
-import { down } from 'shared/constants/tooltipPosition';
 import { History } from 'modules/Histoty';
 import { useOrders } from 'hooks/useOrders';
 import { Loader } from 'shared/components/Loader';
 import { oops } from 'shared/constants/errorText';
 import { Info } from 'pages/CartPage/CartPage.styled';
 import { schema } from './schema';
+import { Wrap } from './HistoryPage.stled';
 
 const searchInput = {
   inputName: 'code',
@@ -69,22 +68,22 @@ const HistoryPage = () => {
       </Helmet>
       <Section>
         <Container>
-          <Tooltip
-            text="search by code"
-            ariaLabel="search input"
-            position={down}
-          >
-            <SearchInput
-              id={searchInput.id}
-              inputName={searchInput.inputName}
-              register={register}
-              errors={errors}
-              onChange={handleSearch}
-              placeholder="Search ..."
-            />
-          </Tooltip>
           {isLoading && <Loader />}
-          {showList && <History items={filteredItems} />}
+          {showList && (
+            <>
+              <Wrap>
+                <SearchInput
+                  id={searchInput.id}
+                  inputName={searchInput.inputName}
+                  register={register}
+                  errors={errors}
+                  onChange={handleSearch}
+                  placeholder="Search by order code..."
+                />
+              </Wrap>
+              <History items={filteredItems} />
+            </>
+          )}
           {showEmpty && <Info>Your history is empty</Info>}
           {showError && <Info>{oops}</Info>}
         </Container>

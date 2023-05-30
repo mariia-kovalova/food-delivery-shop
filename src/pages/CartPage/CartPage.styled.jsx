@@ -19,22 +19,25 @@ export const Wrap = styled.div`
 
     & > .cart {
       grid-area: cart;
-      height: 55vh;
-      overflow-y: auto;
-      overflow-x: hidden;
+    }
+  }
 
-      &::-webkit-scrollbar {
-        width: 0.5em;
-      }
+  & > .cart {
+    height: 55vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-      &::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      }
+    &::-webkit-scrollbar {
+      width: 0.5em;
+    }
 
-      &::-webkit-scrollbar-thumb {
-        background-color: ${({ theme }) => theme.borderModal};
-        border-radius: 5px;
-      }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.borderModal};
+      border-radius: 5px;
     }
   }
 `;
@@ -85,4 +88,6 @@ export const Info = styled.p`
   margin: 0 auto;
   padding-top: 30vh;
   width: 300px;
+
+  text-align: center;
 `;

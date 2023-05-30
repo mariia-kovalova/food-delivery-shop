@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
-export const BaseButton = styled.button`
+export const StyledBaseLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +34,6 @@ export const BaseButton = styled.button`
   &:disabled {
     cursor: default;
     background-color: ${({ theme }) => theme.disabled};
-    border-color: ${({ theme }) => theme.disabled};
   }
 
   &:not(:disabled):hover {

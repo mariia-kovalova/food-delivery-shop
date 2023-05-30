@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, List, StyledH2 } from './History.styled';
+import { Code, Item, List, StyledH2 } from './History.styled';
 
 export const History = ({ items }) => {
   return (
@@ -8,7 +8,7 @@ export const History = ({ items }) => {
       <List>
         {items.map(item => (
           <Item key={item.info.id}>
-            <p># {item.info.id}</p>
+            <Code># {item.info.id}</Code>
             <p>Store: {item.info.store_name}</p>
             <p>Number of items: {item.items.length}</p>
             <p>Total price: {item.info.total_price} $</p>

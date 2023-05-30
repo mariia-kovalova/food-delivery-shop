@@ -1,7 +1,8 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 import { tablet } from 'shared/constants/deviceSizes';
 
-export const ThemeIcon = styled.svg`
+export const Svg = styled.svg`
   fill: ${({ theme }) => theme.primary};
   height: 28px;
   width: 28px;
@@ -16,14 +17,16 @@ export const ThemeIcon = styled.svg`
   }
 
   @media (min-width: ${tablet}) {
-    height: 32px;
-    width: 32px;
+    height: 36px;
+    width: 36px;
   }
 `;
 
-export const ToggleButton = styled.button`
+export const StyledNavLink = styled(NavLink)`
+  display: block;
+  padding: 0px;
+
   color: transparent;
   background-color: transparent;
   border: none;
-  padding: 0px;
 `;

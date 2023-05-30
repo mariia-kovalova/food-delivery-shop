@@ -49,3 +49,8 @@ export const Item = styled.li`
     justify-content: space-around;
   }
 `;
+
+export const Code = styled.p`
+  font-weight: 900;
+  font-size: 18px;
+`;

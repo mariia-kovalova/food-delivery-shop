@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 
 import { useStores } from 'hooks/useStores';
 import { useDispatch } from 'react-redux';
@@ -13,14 +13,22 @@ import { Section } from 'shared/styles/components/Section.styled';
 import { Wrap } from './ShopPage.styled';
 import { Shop } from 'modules/Shop';
 import { Info } from 'pages/CartPage/CartPage.styled';
+import { storeNameNormalize } from 'shared/utils/storeNameNormalize';
 
 const ShopPage = () => {
   const { items, isLoading, error } = useStores();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getStores());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (items[0]?.store_name)
+      navigate(`/shop/${storeNameNormalize(items[0].store_name)}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
 
   const showList = items.length > 0 && !error;
   const showError = !isLoading && error;

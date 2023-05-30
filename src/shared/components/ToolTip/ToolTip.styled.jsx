@@ -11,39 +11,29 @@ export const Trigger = styled.div`
 
 export const Text = styled.div`
   position: absolute;
-  top: ${({ position }) => (position === up ? '-45px' : '40px')};
+  top: ${({ position }) => (position === up ? '-45px' : 'calc(100% + 10px)')};
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
 
-  height: fit-content;
-  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
 
-  background-color: #333;
-  color: #fff;
+  width: 170px;
+
+  background-color: transparent;
+  color: transparent;
   padding: 8px;
   border-radius: 4px;
   font-size: 14px;
   line-height: 1.4;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 250ms ${({ theme }) => theme.cubic};
+  text-align: center;
+
+  transition: color 250ms ${({ theme }) => theme.cubic},
+    background-color 250ms ${({ theme }) => theme.cubic};
 
   ${Trigger}:hover & {
-    opacity: 1;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: ${({ position }) =>
-      position === up ? '6px 6px 0 6px' : '0'};
-    border-color: #333 transparent transparent transparent;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    color: #fff;
+    background-color: #333;
   }
 `;

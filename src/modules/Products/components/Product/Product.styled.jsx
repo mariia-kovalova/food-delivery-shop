@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { tablet } from 'shared/constants/deviceSizes';
 import { BaseButton } from 'shared/styles/components/BaseButton.styled';
 
 export const Wrap = styled.div`
@@ -47,6 +48,17 @@ export const Price = styled.p`
   text-align: center;
 `;
 
+export const Container = styled.div`
+  position: relative;
+
+  width: 100%;
+
+  & .tooltip {
+    position: absolute;
+    top: 0;
+  }
+`;
+
 export const Btn = styled(BaseButton)`
   padding: 6px 3px;
   width: 100%;
@@ -60,4 +72,13 @@ export const Btn = styled(BaseButton)`
 
   background-color: ${({ isInCart, theme: { bgPrimary, primary } }) =>
     isInCart ? bgPrimary : primary};
+`;
+
+export const TransparentSpace = styled.div`
+  width: 180px;
+  height: 32px;
+
+  @media (min-width: ${tablet}) {
+    width: 146px;
+  }
 `;

@@ -40,3 +40,8 @@ export const StyledDiv = styled.div`
     }
   }
 `;
+
+export const Wrap = styled.div`
+  display: flex;
+  gap: 20px;
+`;

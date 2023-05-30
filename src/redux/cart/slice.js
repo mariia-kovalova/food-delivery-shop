@@ -6,6 +6,7 @@ const ordersActions = [sendFirstOrder, sendOrderWithUserId];
 const getActions = type => ordersActions.map(action => action[type]);
 
 const initialState = {
+  store_name: '',
   items: [],
 };
 
@@ -13,6 +14,9 @@ export const slice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    setStoreName(state, { payload }) {
+      state.store_name = payload;
+    },
     addToCart(state, { payload }) {
       state.items = [...state.items, { ...payload, amount: 1 }];
     },
@@ -31,5 +35,6 @@ export const slice = createSlice({
     }),
 });
 
-export const { addToCart, removeFromCart, setAmount } = slice.actions;
+export const { setStoreName, addToCart, removeFromCart, setAmount } =
+  slice.actions;
 export const cartReducer = slice.reducer;

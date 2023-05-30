@@ -20,7 +20,7 @@ export const StyledNavBar = styled.nav`
 export const StyledUl = styled.ul`
   position: absolute;
   top: 0;
-  left: 10%;
+  left: 0;
   right: 0;
   bottom: 0;
   z-index: 2000;
@@ -39,7 +39,7 @@ export const StyledUl = styled.ul`
   background-color: ${({ theme }) => theme.bgPrimary};
 
   & li {
-    width: 130px;
+    width: 100%;
     position: relative;
     height: 40px;
     display: flex;
