@@ -1,5 +1,4 @@
 import { Suspense, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Outlet } from 'react-router';
 
 import { useStores } from 'hooks/useStores';
@@ -28,9 +27,6 @@ const ShopPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Food Delivery</title>
-      </Helmet>
       <Section>
         <Container>
           {isLoading && <Loader />}
