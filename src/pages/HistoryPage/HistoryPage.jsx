@@ -14,9 +14,9 @@ import { History } from 'modules/Histoty';
 import { useOrders } from 'hooks/useOrders';
 import { Loader } from 'shared/components/Loader';
 import { oops } from 'shared/constants/errorText';
-import { Info } from 'pages/CartPage/CartPage.styled';
 import { schema } from './schema';
 import { Wrap } from './HistoryPage.stled';
+import { Info } from 'shared/styles/components/Info';
 
 const searchInput = {
   inputName: 'code',

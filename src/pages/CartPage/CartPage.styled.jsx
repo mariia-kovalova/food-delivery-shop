@@ -83,11 +83,3 @@ export const SubmitBtn = styled(BaseButton)`
   font-size: 16px;
   line-height: 20px;
 `;
-
-export const Info = styled.p`
-  margin: 0 auto;
-  padding-top: 30vh;
-  width: 300px;
-
-  text-align: center;
-`;

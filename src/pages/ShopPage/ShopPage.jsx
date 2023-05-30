@@ -12,8 +12,8 @@ import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
 import { Wrap } from './ShopPage.styled';
 import { Shop } from 'modules/Shop';
-import { Info } from 'pages/CartPage/CartPage.styled';
 import { storeNameNormalize } from 'shared/utils/storeNameNormalize';
+import { Info } from 'shared/styles/components/Info';
 
 const ShopPage = () => {
   const { items, isLoading, error } = useStores();
