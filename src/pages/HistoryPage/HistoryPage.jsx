@@ -15,9 +15,9 @@ import { Tooltip } from 'shared/components/ToolTip';
 import { down } from 'shared/constants/tooltipPosition';
 import { History } from 'modules/Histoty';
 import { useOrders } from 'hooks/useOrders';
-import { Info } from 'modules/Cart/components/CartItem/CartItem.styled';
 import { Loader } from 'shared/components/Loader';
 import { oops } from 'shared/constants/errorText';
+import { Info } from 'pages/CartPage/CartPage.styled';
 
 const searchInput = {
   inputName: 'code',
@@ -56,7 +56,7 @@ const HistoryPage = () => {
   }, DELAY);
 
   const showList = items.length > 0 && !isLoading && !error;
-  const showEmpty = items.length < 0 && !isLoading && !error;
+  const showEmpty = items.length === 0 && !isLoading && !error;
   const showError = !isLoading && error;
 
   return (
@@ -82,7 +82,7 @@ const HistoryPage = () => {
           </Tooltip>
           {isLoading && <Loader />}
           {showList && <History items={filteredItems} />}
-          {showEmpty && <Info> Your history is empty</Info>}
+          {showEmpty && <Info>Your history is empty</Info>}
           {showError && <Info>{oops}</Info>}
         </Container>
       </Section>
