@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.7441f78b.css",
-    "main.js": "/static/js/main.8e6361c5.js",
+    "main.js": "/static/js/main.0c4fde07.js",
     "static/js/413.af687680.chunk.js": "/static/js/413.af687680.chunk.js",
     "static/js/477.b5ec3ac3.chunk.js": "/static/js/477.b5ec3ac3.chunk.js",
     "static/js/94.065f66ad.chunk.js": "/static/js/94.065f66ad.chunk.js",
-    "static/js/41.a26c8ad9.chunk.js": "/static/js/41.a26c8ad9.chunk.js",
-    "static/js/1.53a109e0.chunk.js": "/static/js/1.53a109e0.chunk.js",
+    "static/js/13.03ad4eb2.chunk.js": "/static/js/13.03ad4eb2.chunk.js",
+    "static/js/1.44591c66.chunk.js": "/static/js/1.44591c66.chunk.js",
     "static/js/199.e824a467.chunk.js": "/static/js/199.e824a467.chunk.js",
     "static/js/286.6cb3fa25.chunk.js": "/static/js/286.6cb3fa25.chunk.js",
     "static/media/montserrat-latin-400-normal.woff": "/static/media/montserrat-latin-400-normal.0f1794a79a689a577c2a.woff",
@@ -22,17 +22,17 @@
     "static/media/montserrat-vietnamese-400-normal.woff2": "/static/media/montserrat-vietnamese-400-normal.8f3f4c99eb0eeb5990f1.woff2",
     "index.html": "/index.html",
     "main.7441f78b.css.map": "/static/css/main.7441f78b.css.map",
-    "main.8e6361c5.js.map": "/static/js/main.8e6361c5.js.map",
+    "main.0c4fde07.js.map": "/static/js/main.0c4fde07.js.map",
     "413.af687680.chunk.js.map": "/static/js/413.af687680.chunk.js.map",
     "477.b5ec3ac3.chunk.js.map": "/static/js/477.b5ec3ac3.chunk.js.map",
     "94.065f66ad.chunk.js.map": "/static/js/94.065f66ad.chunk.js.map",
-    "41.a26c8ad9.chunk.js.map": "/static/js/41.a26c8ad9.chunk.js.map",
-    "1.53a109e0.chunk.js.map": "/static/js/1.53a109e0.chunk.js.map",
+    "13.03ad4eb2.chunk.js.map": "/static/js/13.03ad4eb2.chunk.js.map",
+    "1.44591c66.chunk.js.map": "/static/js/1.44591c66.chunk.js.map",
     "199.e824a467.chunk.js.map": "/static/js/199.e824a467.chunk.js.map",
     "286.6cb3fa25.chunk.js.map": "/static/js/286.6cb3fa25.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7441f78b.css",
-    "static/js/main.8e6361c5.js"
+    "static/js/main.0c4fde07.js"
   ]
 }
