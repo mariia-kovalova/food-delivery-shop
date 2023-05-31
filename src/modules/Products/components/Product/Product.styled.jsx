@@ -56,6 +56,8 @@ export const Container = styled.div`
   & .tooltip {
     position: absolute;
     top: 0;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -72,13 +74,4 @@ export const Btn = styled(BaseButton)`
 
   background-color: ${({ isInCart, theme: { bgPrimary, primary } }) =>
     isInCart ? bgPrimary : primary};
-`;
-
-export const TransparentSpace = styled.div`
-  width: 180px;
-  height: 32px;
-
-  @media (min-width: ${tablet}) {
-    width: 146px;
-  }
 `;

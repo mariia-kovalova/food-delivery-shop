@@ -8,7 +8,6 @@ import {
   Info,
   Price,
   StyledH3,
-  TransparentSpace,
   Wrap,
 } from './Product.styled';
 import { useCart } from 'hooks/useCart';
@@ -57,16 +56,12 @@ export const Product = ({ product }) => {
           {!ableToAdd && (
             <Tooltip
               ariaLabel="disabled action"
-              text="you can order food only from one shop"
+              text="you can order food only from one store"
               position={down}
-            >
-              <TransparentSpace />
-            </Tooltip>
+            ></Tooltip>
           )}
         </Container>
       </Info>
     </Wrap>
   );
 };
-
-// tooltip id diabled - you can add to cart items only from a single store
