@@ -14,6 +14,7 @@ import { getCleanItems } from 'shared/utils/getCleanItems';
 import { useOrders } from 'hooks/useOrders';
 import { useDispatch } from 'react-redux';
 import { sendFirstOrder, sendOrderWithUserId } from 'redux/orders/thunks';
+import { toast } from 'react-toastify';
 
 export const UserForm = () => {
   const { id } = useUser();
@@ -41,6 +42,8 @@ export const UserForm = () => {
     setTotalPrice(price);
   }, [items]);
 
+  const notify = () => toast.success('Your order has been successfully sent!');
+
   const onSubmit = async data => {
     const newOrder = {
       info: { id: getOrderId(), store_name, total_price },
@@ -49,13 +52,15 @@ export const UserForm = () => {
     const formData = { ...data, orders: [...orders, newOrder] };
 
     if (!id) {
-      dispatch(sendFirstOrder(formData));
+      await dispatch(sendFirstOrder(formData))
+        .unwrap()
+        .then(() => notify());
     }
     if (id) {
-      dispatch(sendOrderWithUserId({ ...formData, id }));
+      await dispatch(sendOrderWithUserId({ ...formData, id }))
+        .unwrap()
+        .then(() => notify());
     }
-
-    // reset();
   };
 
   return (

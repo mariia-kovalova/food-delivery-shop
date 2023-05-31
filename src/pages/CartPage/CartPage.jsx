@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from 'hooks/useCart';
-import { useUser } from 'hooks/useUser';
 
 import { Cart } from 'modules/Cart';
 import { UserForm } from 'modules/UserForm';
 import { formId } from 'modules/UserForm/inputs';
 
-import { useDispatch } from 'react-redux';
-import { getOrdersByUserId } from 'redux/orders/thunks';
 import { getPrice } from 'shared/utils/getPrice';
 
 import { Container } from 'shared/styles/components/Container.styled';
@@ -24,14 +21,8 @@ import {
 } from './CartPage.styled';
 
 const CartPage = () => {
-  const { id } = useUser();
   const { items } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (id) dispatch(getOrdersByUserId({ id }));
-  }, [dispatch, id]);
 
   useEffect(() => {
     const price = items.reduce((acc, item) => {
