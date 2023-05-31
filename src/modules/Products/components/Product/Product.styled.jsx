@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { tablet } from 'shared/constants/deviceSizes';
 import { BaseButton } from 'shared/styles/components/BaseButton.styled';
 
 export const Wrap = styled.div`
