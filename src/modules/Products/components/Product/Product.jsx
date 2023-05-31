@@ -1,6 +1,15 @@
-import { productTittleNormalize } from 'shared/utils/productTitleNoramlize';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart, removeFromCart, setStoreName } from 'redux/cart/slice';
+
+import { useCart } from 'hooks/useCart';
+import { useOneStore } from 'hooks/useOneStore';
+
+import { productTittleNormalize } from 'shared/utils/productTitleNoramlize';
+import { down } from 'shared/constants/tooltipPosition';
+
+import { getPrice } from 'shared/utils/getPrice';
+import { Tooltip } from 'shared/components/ToolTip';
 import {
   Btn,
   Container,
@@ -10,11 +19,6 @@ import {
   StyledH3,
   Wrap,
 } from './Product.styled';
-import { useCart } from 'hooks/useCart';
-import { useOneStore } from 'hooks/useOneStore';
-import { useEffect, useState } from 'react';
-import { Tooltip } from 'shared/components/ToolTip';
-import { down } from 'shared/constants/tooltipPosition';
 
 export const Product = ({ product }) => {
   const [ableToAdd, setAbleToAdd] = useState(true);
@@ -43,7 +47,7 @@ export const Product = ({ product }) => {
       <Info>
         <Img src={url} width="164" height="164" loading="lazy" alt={name} />
         <StyledH3>{productTittleNormalize(name)}</StyledH3>
-        <Price>{price} $</Price>
+        <Price>{getPrice(price)}</Price>
         <Container>
           <Btn
             type="button"
@@ -58,7 +62,7 @@ export const Product = ({ product }) => {
               ariaLabel="disabled action"
               text="you can order food only from one store"
               position={down}
-            ></Tooltip>
+            />
           )}
         </Container>
       </Info>

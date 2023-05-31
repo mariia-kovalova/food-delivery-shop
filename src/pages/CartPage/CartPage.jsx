@@ -1,9 +1,19 @@
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from 'hooks/useCart';
+import { useUser } from 'hooks/useUser';
+
+import { Cart } from 'modules/Cart';
+import { UserForm } from 'modules/UserForm';
+import { formId } from 'modules/UserForm/inputs';
+
+import { useDispatch } from 'react-redux';
+import { getOrdersByUserId } from 'redux/orders/thunks';
+import { getPrice } from 'shared/utils/getPrice';
 
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
-import { Cart } from 'modules/Cart';
+import { Info } from 'shared/styles/components/Info';
 import {
   Number,
   Price,
@@ -12,13 +22,6 @@ import {
   Total,
   Wrap,
 } from './CartPage.styled';
-import { UserForm } from 'modules/UserForm';
-import { useEffect, useState } from 'react';
-import { formId } from 'modules/UserForm/inputs';
-import { useDispatch } from 'react-redux';
-import { getOrdersByUserId } from 'redux/orders/thunks';
-import { useUser } from 'hooks/useUser';
-import { Info } from 'shared/styles/components/Info';
 
 const CartPage = () => {
   const { id } = useUser();
@@ -59,7 +62,7 @@ const CartPage = () => {
               <SubmitWrap>
                 <Price>
                   <Total>Total: </Total>
-                  <Number>{totalPrice} $</Number>
+                  <Number>{getPrice(totalPrice)}</Number>
                 </Price>
                 <SubmitBtn form={formId} type="submit">
                   Submit

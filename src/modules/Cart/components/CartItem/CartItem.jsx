@@ -1,9 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { removeFromCart } from 'redux/cart/slice';
+
 import { productTittleNormalize } from 'shared/utils/productTitleNoramlize';
+import { getPrice } from 'shared/utils/getPrice';
+
+import { Amount } from '../Amount/Amount';
 import { Btn, Img, Info, Price, StyledH3, Svg, Wrap } from './CartItem.styled';
 import sprite from 'shared/icons/sprite.svg';
-import { Amount } from '../Amount/Amount';
 
 export const CartItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -16,7 +19,7 @@ export const CartItem = ({ item }) => {
       <Info>
         <Img src={url} width="70" height="70" loading="lazy" alt={name} />
         <StyledH3>{productTittleNormalize(name)}</StyledH3>
-        <Price>{price} $</Price>
+        <Price>{getPrice(price)}</Price>
       </Info>
       <Btn type="button" onClick={handleRemoreFromCart}>
         <Svg>
