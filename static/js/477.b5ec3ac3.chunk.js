@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfood_delivery_shop=self.webpackChunkfood_delivery_shop||[]).push([[477],{6477:function(e,o,n){n.r(o),n.d(o,{default:function(){return t}});var d,i,r,s=n(168),u=n(4709),l=u.Z.div(d||(d=(0,s.Z)(["\n  padding-top: 20px;\n"]))),p=u.Z.h1(i||(i=(0,s.Z)([""]))),c=u.Z.p(r||(r=(0,s.Z)([""]))),h=n(184),t=function(){return(0,h.jsxs)(l,{children:[(0,h.jsx)(p,{children:"Welcome to your Food Delivery App"}),(0,h.jsx)(c,{children:"Choose a shop to find your delicious meal"})]})}}}]);
-//# sourceMappingURL=477.b5ec3ac3.chunk.js.map
