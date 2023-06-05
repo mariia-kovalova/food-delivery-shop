@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart, removeFromCart, setStoreName } from 'redux/cart/slice';
+import { addToCart, removeFromCart, setStore } from 'redux/cart/slice';
 
 import { useCart } from 'hooks/useCart';
 import { useOneStore } from 'hooks/useOneStore';
@@ -22,22 +22,22 @@ import {
 
 export const Product = ({ product }) => {
   const [ableToAdd, setAbleToAdd] = useState(true);
+
   const { items, store_name: cart_store_name } = useCart();
-  const { store_name } = useOneStore();
-  const dispatch = useDispatch();
+  const { store_name, location } = useOneStore();
+
   const { name, url, price, isInCart } = product;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (items.length > 0 && store_name !== cart_store_name) setAbleToAdd(false);
   }, [cart_store_name, items.length, store_name]);
 
   const handleToggleCart = () => {
-    if (items.length === 0) dispatch(setStoreName(store_name));
+    if (items.length === 0) dispatch(setStore({ store_name, location }));
 
-    if (isInCart) {
-      dispatch(removeFromCart(product));
-      if (items.length === 0) dispatch(setStoreName(''));
-    }
+    if (isInCart) dispatch(removeFromCart(product));
 
     if (!isInCart) dispatch(addToCart(product));
   };

@@ -24,11 +24,4 @@ export const inputs = [
     label: 'Phone',
     placeholder: 'Enter phone',
   },
-  {
-    inputName: 'address',
-    type: 'text',
-    id: nanoid(),
-    label: 'Address',
-    placeholder: 'Enter address',
-  },
 ];

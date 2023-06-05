@@ -4,6 +4,7 @@ import { selectCartItems } from 'redux/cart/selectors';
 import {
   selectStoreId,
   selectStoreItems,
+  selectStoreLocation,
   selectStoreName,
 } from 'redux/store/selectors';
 import { getRandomPrice } from 'shared/utils/getRandomPrice';
@@ -27,11 +28,13 @@ const slectItemsWithPriceAndIsInCart = createSelector(
 export const useOneStore = () => {
   const id = useSelector(selectStoreId);
   const store_name = useSelector(selectStoreName);
-  const items = useSelector(slectItemsWithPriceAndIsInCart);
+  const location = useSelector(selectStoreLocation);
+  const products = useSelector(slectItemsWithPriceAndIsInCart);
 
   return {
     id,
     store_name,
-    items,
+    location,
+    products,
   };
 };

@@ -12,7 +12,7 @@ export const CartItem = ({ item }) => {
   const dispatch = useDispatch();
   const { id, name, url, price, amount } = item;
 
-  const handleRemoreFromCart = () => dispatch(removeFromCart(item));
+  const handleRemoveFromCart = () => dispatch(removeFromCart(item));
 
   return (
     <Wrap>
@@ -21,7 +21,7 @@ export const CartItem = ({ item }) => {
         <StyledH3>{productTittleNormalize(name)}</StyledH3>
         <Price>{getPrice(price)}</Price>
       </Info>
-      <Btn type="button" onClick={handleRemoreFromCart}>
+      <Btn type="button" onClick={handleRemoveFromCart}>
         <Svg>
           <use href={`${sprite}#icon-trash-can-solid`} />
         </Svg>

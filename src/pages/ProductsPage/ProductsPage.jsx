@@ -11,8 +11,8 @@ import { useOneStore } from 'hooks/useOneStore';
 
 const ProductsPage = () => {
   const { store_name } = useParams();
-  const { items: stores } = useStores();
-  const { items: products } = useOneStore();
+  const { stores } = useStores();
+  const { products } = useOneStore();
   const dispath = useDispatch();
 
   useEffect(() => {

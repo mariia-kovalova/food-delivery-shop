@@ -38,21 +38,8 @@ export const getOrdersByUserId = createAsyncThunk(
   }
 );
 
-// export const getOrdersByFilterWithPagination = createAsyncThunk(
-//   'getOrdersByFilterWithPagination',
-//   async (formData, { rejectWithValue }) => {
-//     try {
-//       const data = await API.orders.getOrdersByFilterWithPagination(formData);
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error);
-//     }
-//   }
-// );
-
 export const ordersActions = [
   sendFirstOrder,
   sendOrderWithUserId,
   getOrdersByUserId,
-  // getOrdersByFilterWithPagination,
 ];

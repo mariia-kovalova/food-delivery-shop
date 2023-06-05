@@ -5,9 +5,9 @@ export const Shop = ({ stores }) => {
   return (
     <nav>
       <List>
-        {stores.map(item => (
-          <Item key={item.id}>
-            <Store {...item} />
+        {stores.map(store => (
+          <Item key={store.id}>
+            <Store {...store} />
           </Item>
         ))}
       </List>

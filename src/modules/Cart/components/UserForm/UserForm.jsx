@@ -4,11 +4,9 @@ import { schema } from './schema';
 import { formId, inputs } from './inputs';
 import { getDefaultValues } from 'shared/utils/getDefaultValues';
 import { useUser } from 'hooks/useUser';
-import { FormFiled } from './components/FormField/FormField';
+import { FormFiled } from '../FormField/FormField';
 import { List } from './UserForm.styled';
 import { useCart } from 'hooks/useCart';
-import { useEffect, useState } from 'react';
-import { useOneStore } from 'hooks/useOneStore';
 import { getOrderId } from 'shared/utils/getOrderId';
 import { getCleanItems } from 'shared/utils/getCleanItems';
 import { useOrders } from 'hooks/useOrders';
@@ -17,12 +15,10 @@ import { sendFirstOrder, sendOrderWithUserId } from 'redux/orders/thunks';
 import { toast } from 'react-toastify';
 
 export const UserForm = () => {
-  const { id } = useUser();
-  const { items } = useCart();
-  const { store_name } = useOneStore();
-  const { items: orders } = useOrders();
-  const [total_price, setTotalPrice] = useState(0);
   const user = useUser();
+  const { orders } = useOrders();
+  const { items, store_name, total_price } = useCart();
+
   const dispatch = useDispatch();
 
   const {
@@ -31,23 +27,20 @@ export const UserForm = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: getDefaultValues(inputs, user),
+    defaultValues: { ...getDefaultValues(inputs, user) },
   });
-
-  useEffect(() => {
-    const price = items.reduce((acc, item) => {
-      return acc + item.price * item.amount;
-    }, 0);
-    setTotalPrice(price);
-  }, [items]);
 
   const notify = () => toast.success('Your order has been successfully sent!');
 
   const onSubmit = async data => {
+    // const { id, address, user_location } = user;
+    const { id } = user;
+
     const newOrder = {
       info: { id: getOrderId(), store_name, total_price },
       items: getCleanItems(items),
     };
+
     const formData = { ...data, orders: [...orders, newOrder] };
 
     if (!id) {
@@ -55,8 +48,9 @@ export const UserForm = () => {
         .unwrap()
         .then(() => notify());
     }
+
     if (id) {
-      await dispatch(sendOrderWithUserId({ ...formData, id }))
+      await dispatch(sendOrderWithUserId({ id, ...formData }))
         .unwrap()
         .then(() => notify());
     }

@@ -6,7 +6,10 @@ const ordersActions = [sendFirstOrder, sendOrderWithUserId];
 const getActions = type => ordersActions.map(action => action[type]);
 
 const initialState = {
+  user_id: '',
   store_name: '',
+  store_location: { latitude: null, longitude: null },
+  lotal_price: 0,
   items: [],
 };
 
@@ -14,8 +17,9 @@ export const slice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    setStoreName(state, { payload }) {
-      state.store_name = payload;
+    setStore(state, { payload }) {
+      state.store_name = payload.store_name;
+      state.store_location = payload.location;
     },
     addToCart(state, { payload }) {
       state.items = [...state.items, { ...payload, amount: 1 }];
@@ -28,13 +32,20 @@ export const slice = createSlice({
         item.id === payload.id ? { ...item, amount: payload.amount } : item
       );
     },
+    setTotalPrice(state, { payload }) {
+      state.lotal_price = payload;
+    },
   },
   extraReducers: builder =>
     builder.addMatcher(isAnyOf(...getActions('fulfilled')), state => {
+      state.store_name = '';
+      state.store_location = { latitude: null, longitude: null };
+      state.lotal_price = 0;
       state.items = [];
     }),
 });
 
-export const { setStoreName, addToCart, removeFromCart, setAmount } =
+export const { setStore, addToCart, removeFromCart, setAmount, setTotalPrice } =
   slice.actions;
+
 export const cartReducer = slice.reducer;

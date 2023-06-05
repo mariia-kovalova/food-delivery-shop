@@ -24,16 +24,9 @@ export const orders = {
 
     return data;
   },
-  getOrdersByUserId: async ({ id }) => {
+  getOrdersByUserId: async id => {
     const { data } = await axios.get(`/orders/${id}`);
 
     return data;
   },
-  // getOrdersByFilterWithPagination: async ({ id, field_name, page, limit }) => {
-  //   const { data } = await axios.get(`/orders/${id}`, {
-  //     params: { field_name, page, limit },
-  //   });
-
-  //   return data;
-  // },
 };

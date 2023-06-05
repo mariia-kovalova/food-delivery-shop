@@ -16,7 +16,7 @@ import { storeNameNormalize } from 'shared/utils/storeNameNormalize';
 import { Info } from 'shared/styles/components/Info';
 
 const ShopPage = () => {
-  const { items, isLoading, error } = useStores();
+  const { stores, isLoading, error } = useStores();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,12 +25,12 @@ const ShopPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (items[0]?.store_name)
-      navigate(`/shop/${storeNameNormalize(items[0].store_name)}`);
+    if (stores[0]?.store_name)
+      navigate(`/shop/${storeNameNormalize(stores[0].store_name)}`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items]);
+  }, [stores]);
 
-  const showList = items.length > 0 && !error;
+  const showList = stores.length > 0 && !error;
   const showError = !isLoading && error;
 
   return (
@@ -41,7 +41,7 @@ const ShopPage = () => {
           {showList && (
             <Wrap>
               <div className="shop-list">
-                <Shop stores={items} />
+                <Shop stores={stores} />
               </div>
               <div className="products-list">
                 <Suspense>

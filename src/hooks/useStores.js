@@ -6,12 +6,12 @@ import {
 } from 'redux/stores/selectors';
 
 export const useStores = () => {
-  const items = useSelector(selectStoresItems);
+  const stores = useSelector(selectStoresItems);
   const isLoading = useSelector(selectStoresIsLoading);
   const error = useSelector(selectStoresError);
 
   return {
-    items,
+    stores,
     isLoading,
     error,
   };

@@ -7,15 +7,24 @@ export const Wrap = styled.div`
   justify-content: space-between;
 
   padding: 20px 20px 20px 51px;
-  height: 102px;
+  height: 120px;
 
   border-radius: 22px;
   background: ${({ theme }) => theme.bgCard};
 
+  @media (min-width: ${tablet}) {
+    height: 102px;
+  }
+
   & .amount {
     position: absolute;
-    bottom: 7%;
-    right: 3%;
+    bottom: 3%;
+    right: 2%;
+
+    @media (min-width: ${tablet}) {
+      bottom: 7%;
+      right: 3%;
+    }
   }
 `;
 

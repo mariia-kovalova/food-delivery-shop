@@ -20,7 +20,7 @@ import { userReducer } from './user/slice';
 const persistConfig = {
   key: 'delivery-food-app',
   storage,
-  whitelist: ['theme', 'cart', 'user'],
+  whitelist: ['theme', 'cart'],
 };
 
 const rootReducer = combineReducers({

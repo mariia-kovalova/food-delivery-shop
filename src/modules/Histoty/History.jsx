@@ -1,17 +1,17 @@
-import React from 'react';
+import { getPrice } from 'shared/utils/getPrice';
 import { Code, Item, List, StyledH2 } from './History.styled';
 
-export const History = ({ items }) => {
+export const History = ({ orders }) => {
   return (
     <>
       <StyledH2>Orders history</StyledH2>
       <List>
-        {items.map(item => (
-          <Item key={item.info.id}>
-            <Code># {item.info.id}</Code>
-            <p>Store: {item.info.store_name}</p>
-            <p>Number of items: {item.items.length}</p>
-            <p>Total price: {item.info.total_price} $</p>
+        {orders.map(order => (
+          <Item key={order.info.id}>
+            <Code># {order.info.id}</Code>
+            <p>Store: {order.info.store_name}</p>
+            <p>Number of items: {order.items.length}</p>
+            <p>Total price: {getPrice(order.info.total_price)}</p>
           </Item>
         ))}
       </List>

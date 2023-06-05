@@ -3,6 +3,7 @@ import {
   selectUserAddress,
   selectUserEmail,
   selectUserId,
+  selectUserLocation,
   selectUserName,
   selectUserNumber,
 } from 'redux/user/selectors';
@@ -13,6 +14,7 @@ export const useUser = () => {
   const email = useSelector(selectUserEmail);
   const number = useSelector(selectUserNumber);
   const address = useSelector(selectUserAddress);
+  const user_location = useSelector(selectUserLocation);
 
   return {
     id,
@@ -20,5 +22,6 @@ export const useUser = () => {
     email,
     number,
     address,
+    user_location,
   };
 };
