@@ -38,11 +38,10 @@ import {
 
 const mapOptions = {
   zoom: 12,
-  center: {
-    lat: 43.68,
-    lng: -79.43,
-  },
+  center: { lat: 48.86297399085735, lng: 2.3373843681422697 },
 };
+
+const position = { lat: 48.86297399085735, lng: 2.3373843681422697 };
 
 // const KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 const KEY = '';
@@ -61,6 +60,7 @@ export const Map = () => {
     >
       <GoogleMap ref={node => setMapContainer(node)} />
       <Location />
+      <MapMarkers position={position} />
     </GoogleMapsProvider>
   );
 };
@@ -80,6 +80,7 @@ function Location() {
           const lng = location.lng();
           map.panTo({ lat, lng });
           console.log({ lat, lng });
+          // { lat: 51.919438, lng: 19.145136 }
         }
       });
     }
@@ -110,6 +111,23 @@ function Location() {
       placeholder="Enter address"
     />
   );
+}
+
+function MapMarkers({ position }) {
+  const map = useGoogleMap();
+
+  useEffect(() => {
+    if (map) {
+      new window.google.maps.Marker({
+        position,
+        map,
+        title: 'Louvre Museum',
+        // clickable: false,
+      });
+    }
+  }, [map, position]);
+
+  return null;
 }
 
 // export const addressInput = {
