@@ -11,8 +11,10 @@ See the live page here -
 
 ⭐ Choose a shop, then add goods to the cart.
 
-⭐ Change amount of the items, change address by using google maps autocomplete
-input or by clicking on the map.
+⭐ Change amount of the items.
+
+⭐ Change address by using google maps autocomplete input or by clicking on the
+map.
 
 ⭐ Review history of orders, find the order by code.
 
