@@ -39,7 +39,7 @@ make sure to enable billing for the google project, otherwise you may get a
 warning as _development purposes only_.
 
 Add a `.env` file or `.env.local` in the project root and specify your API key
-as `REACT_APP_GOOGLE_MAPS=your_api_key_here`
+as `REACT_APP_GOOGLE_MAPS_API=your_api_key_here`
 
 In the project directory, you can run:
 
