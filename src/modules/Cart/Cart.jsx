@@ -1,11 +1,12 @@
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { useJsApiLoader } from '@react-google-maps/api';
 import { Map } from './components/Map/Map';
+import { DotsLoader } from 'shared/components/DotsLoader';
 import { UserForm } from './components/UserForm/UserForm';
 import { CartList } from './components/CartList/CartList';
 import { Submit } from './components/Submit/Submit';
-import { Wrap } from './Cart.styled';
-import { useJsApiLoader } from '@react-google-maps/api';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
+import { MapLoader, Wrap } from './Cart.styled';
 
 const KEY = process.env.REACT_APP_GOOGLE_MAPS_API ?? '';
 const libraries = ['places'];
@@ -28,7 +29,11 @@ export const Cart = () => {
     <Wrap>
       <div className="form">
         {isLoaded && <Map />}
-        {!isLoaded && <div>Loading...</div>}
+        {!isLoaded && (
+          <MapLoader>
+            <DotsLoader />
+          </MapLoader>
+        )}
         <UserForm />
       </div>
       <div className="cart">

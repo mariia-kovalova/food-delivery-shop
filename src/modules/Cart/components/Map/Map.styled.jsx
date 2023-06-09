@@ -9,5 +9,6 @@ export const DeliveryInfo = styled.div`
   align-items: center;
   gap: 5px;
 
+  min-height: 20px;
   margin-top: 20px;
 `;

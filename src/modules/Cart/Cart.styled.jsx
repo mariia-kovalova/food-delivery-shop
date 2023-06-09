@@ -45,3 +45,11 @@ export const Wrap = styled.div`
     }
   }
 `;
+
+export const MapLoader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 434px;
+`;
