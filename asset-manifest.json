@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/food-delivery-shop/static/css/main.3aa7fa30.css",
-    "main.js": "/food-delivery-shop/static/js/main.a4764058.js",
+    "main.js": "/food-delivery-shop/static/js/main.81568c1c.js",
     "static/js/275.0a4ae086.chunk.js": "/food-delivery-shop/static/js/275.0a4ae086.chunk.js",
     "static/js/413.5118c4d1.chunk.js": "/food-delivery-shop/static/js/413.5118c4d1.chunk.js",
     "static/js/789.ed4d37dd.chunk.js": "/food-delivery-shop/static/js/789.ed4d37dd.chunk.js",
-    "static/js/95.2c5aeec7.chunk.js": "/food-delivery-shop/static/js/95.2c5aeec7.chunk.js",
+    "static/js/713.f8e2575d.chunk.js": "/food-delivery-shop/static/js/713.f8e2575d.chunk.js",
     "static/js/287.79f94179.chunk.js": "/food-delivery-shop/static/js/287.79f94179.chunk.js",
     "static/js/199.4a9c8b0c.chunk.js": "/food-delivery-shop/static/js/199.4a9c8b0c.chunk.js",
     "static/js/286.dfc9f5de.chunk.js": "/food-delivery-shop/static/js/286.dfc9f5de.chunk.js",
@@ -23,11 +23,11 @@
     "static/media/montserrat-vietnamese-400-normal.woff2": "/food-delivery-shop/static/media/montserrat-vietnamese-400-normal.8f3f4c99eb0eeb5990f1.woff2",
     "index.html": "/food-delivery-shop/index.html",
     "main.3aa7fa30.css.map": "/food-delivery-shop/static/css/main.3aa7fa30.css.map",
-    "main.a4764058.js.map": "/food-delivery-shop/static/js/main.a4764058.js.map",
+    "main.81568c1c.js.map": "/food-delivery-shop/static/js/main.81568c1c.js.map",
     "275.0a4ae086.chunk.js.map": "/food-delivery-shop/static/js/275.0a4ae086.chunk.js.map",
     "413.5118c4d1.chunk.js.map": "/food-delivery-shop/static/js/413.5118c4d1.chunk.js.map",
     "789.ed4d37dd.chunk.js.map": "/food-delivery-shop/static/js/789.ed4d37dd.chunk.js.map",
-    "95.2c5aeec7.chunk.js.map": "/food-delivery-shop/static/js/95.2c5aeec7.chunk.js.map",
+    "713.f8e2575d.chunk.js.map": "/food-delivery-shop/static/js/713.f8e2575d.chunk.js.map",
     "287.79f94179.chunk.js.map": "/food-delivery-shop/static/js/287.79f94179.chunk.js.map",
     "199.4a9c8b0c.chunk.js.map": "/food-delivery-shop/static/js/199.4a9c8b0c.chunk.js.map",
     "286.dfc9f5de.chunk.js.map": "/food-delivery-shop/static/js/286.dfc9f5de.chunk.js.map",
@@ -35,6 +35,6 @@
   },
   "entrypoints": [
     "static/css/main.3aa7fa30.css",
-    "static/js/main.a4764058.js"
+    "static/js/main.81568c1c.js"
   ]
 }
