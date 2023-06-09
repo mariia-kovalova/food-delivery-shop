@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   addToCart,
@@ -26,17 +25,12 @@ import {
 } from './Product.styled';
 
 export const Product = ({ product }) => {
-  const [ableToAdd, setAbleToAdd] = useState(true);
   const { items, store_name } = useCart();
   const { name, location } = useOneStore();
 
-  const { name: tittle, url, price, isInCart } = product;
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (items.length !== 0 && name !== store_name) setAbleToAdd(false);
-  }, [dispatch, items.length, name, store_name]);
+  const { name: tittle, url, price, isInCart } = product;
 
   const handleToggleCart = () => {
     if (!isInCart) {
@@ -53,6 +47,9 @@ export const Product = ({ product }) => {
       dispatch(removeFromCart(product));
     }
   };
+
+  const ableToAdd =
+    items.length === 0 || (items.length !== 0 && name === store_name);
 
   return (
     <Wrap>
