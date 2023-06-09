@@ -37,6 +37,19 @@ export const Number = styled.p`
   line-height: 26px;
 `;
 
+export const Container = styled.div`
+  position: relative;
+
+  width: fit-content;
+
+  & .tooltip {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
 export const SubmitBtn = styled(BaseButton)`
   padding: 8px 50px;
 
