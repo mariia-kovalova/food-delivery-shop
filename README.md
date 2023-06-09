@@ -11,16 +11,12 @@ See the live page here -
 
 ⭐ Choose a shop, then add goods to the cart.
 
-![](.gitbook/assets/shop-page.jpg)
-
 ⭐ Change amount of the items, change address by using google maps autocomplete
 input or by clicking on the map.
 
-![](.gitbook/assets/cart-page.jpg)
-
 ⭐ Review history of orders, find the order by code.
 
-![](.gitbook/assets/history-page.jpg)
+![](.gitbook/assets/app.png)
 
 ## Stack, technologies and libraries
 
