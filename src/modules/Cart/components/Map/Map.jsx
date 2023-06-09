@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { DirectionsRenderer, GoogleMap, Marker } from '@react-google-maps/api';
 import { useUser } from 'hooks/useUser';
 import { useCart } from 'hooks/useCart';
@@ -24,22 +24,28 @@ export const Map = () => {
 
   const dispatch = useDispatch();
 
-  const geocoder = new window.google.maps.Geocoder();
+  const geocoder = useMemo(() => new window.google.maps.Geocoder(), []);
 
   useEffect(() => {
     if (!user_id) {
       const getLocation = ({ coords }) => {
-        dispatch(
-          setUserLocation({
-            lat: coords.latitude,
-            lng: coords.longitude,
-          })
-        );
+        const location = {
+          lat: coords.latitude,
+          lng: coords.longitude,
+        };
+        dispatch(setUserLocation(location));
+
+        geocoder.geocode({ location }, (results, status) => {
+          if (status === 'OK' && results.length > 0) {
+            const address = results[0].formatted_address || results[0].name;
+            dispatch(setUserAddress(address));
+          }
+        });
       };
 
       navigator.geolocation.getCurrentPosition(getLocation);
     }
-  }, [dispatch, user_id]);
+  }, [dispatch, geocoder, user_id]);
 
   useEffect(() => {
     const calculateRoute = async (origin, destination) => {
@@ -94,10 +100,10 @@ export const Map = () => {
           zoom={11}
           mapContainerStyle={{ width: '100%', height: '100%' }}
           options={{
-            zoomControl: false,
+            zoomControl: true,
             streetViewControl: false,
             mapTypeControl: false,
-            fullscreenControl: false,
+            fullscreenControl: true,
           }}
           onLoad={map => setMap(map)}
           onClick={onMapClick}
