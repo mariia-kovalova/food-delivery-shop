@@ -22,7 +22,7 @@ const ProductsPage = () => {
 
   const showList = products.length > 0;
 
-  return <>{showList && <Products products={products} />}</>;
+  if (showList) return <Products products={products} />;
 };
 
 export default ProductsPage;

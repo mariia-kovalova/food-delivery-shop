@@ -14,5 +14,4 @@ export const schema = Yup.object().shape({
     .max(16, nameMes.size),
   email: Yup.string().required(requiredMes).email(emailMes),
   number: Yup.string().required(requiredMes).matches(phoneRegExp, phoneMes),
-  address: Yup.string().required(requiredMes),
 });

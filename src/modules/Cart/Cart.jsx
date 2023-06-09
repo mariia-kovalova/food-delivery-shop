@@ -1,14 +1,33 @@
-import { List } from './Cart.styled';
-import { CartItem } from './components/CartItem/CartItem';
+import { Map } from './components/Map/Map';
+import { UserForm } from './components/UserForm/UserForm';
+import { CartList } from './components/CartList/CartList';
+import { Submit } from './components/Submit/Submit';
+import { Wrap } from './Cart.styled';
+import { useJsApiLoader } from '@react-google-maps/api';
 
-export const Cart = ({ items }) => {
+// const KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const KEY = '';
+const libraries = ['places'];
+
+export const Cart = () => {
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: KEY,
+    libraries,
+  });
+
   return (
-    <List>
-      {items.map(item => (
-        <li key={item.id}>
-          <CartItem item={item} />
-        </li>
-      ))}
-    </List>
+    <Wrap>
+      <div className="form">
+        {isLoaded && <Map />}
+        {!isLoaded && <div>Loading...</div>}
+        <UserForm />
+      </div>
+      <div className="cart">
+        <CartList />
+      </div>
+      <div className="submit">
+        <Submit />
+      </div>
+    </Wrap>
   );
 };

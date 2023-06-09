@@ -23,7 +23,7 @@ export const Item = styled.li`
 
   gap: 10px;
 
-  padding: 20px 40px;
+  padding: 20px;
 
   font-style: normal;
   font-weight: 700;
@@ -37,16 +37,15 @@ export const Item = styled.li`
   @media (min-width: ${tablet}) {
     padding: 20px 40px;
     font-size: 14px;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
   }
 
   @media (min-width: ${desktop}) {
-    font-size: 16px;
-
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-around;
+
+    font-size: 16px;
   }
 `;
 

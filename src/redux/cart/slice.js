@@ -8,7 +8,7 @@ const getActions = type => ordersActions.map(action => action[type]);
 const initialState = {
   user_id: '',
   store_name: '',
-  store_location: { latitude: null, longitude: null },
+  store_location: null,
   lotal_price: 0,
   items: [],
 };
@@ -37,12 +37,16 @@ export const slice = createSlice({
     },
   },
   extraReducers: builder =>
-    builder.addMatcher(isAnyOf(...getActions('fulfilled')), state => {
-      state.store_name = '';
-      state.store_location = { latitude: null, longitude: null };
-      state.lotal_price = 0;
-      state.items = [];
-    }),
+    builder
+      .addCase(sendFirstOrder.fulfilled, (state, { payload }) => {
+        state.user_id = payload.id;
+      })
+      .addMatcher(isAnyOf(...getActions('fulfilled')), state => {
+        state.store_name = '';
+        state.store_location = null;
+        state.lotal_price = 0;
+        state.items = [];
+      }),
 });
 
 export const { setStore, addToCart, removeFromCart, setAmount, setTotalPrice } =

@@ -17,7 +17,7 @@ import { toast } from 'react-toastify';
 export const UserForm = () => {
   const user = useUser();
   const { orders } = useOrders();
-  const { items, store_name, total_price } = useCart();
+  const { user_id, items, store_name, total_price } = useCart();
 
   const dispatch = useDispatch();
 
@@ -33,24 +33,28 @@ export const UserForm = () => {
   const notify = () => toast.success('Your order has been successfully sent!');
 
   const onSubmit = async data => {
-    // const { id, address, user_location } = user;
-    const { id } = user;
+    const { address, user_location } = user;
 
     const newOrder = {
       info: { id: getOrderId(), store_name, total_price },
       items: getCleanItems(items),
     };
 
-    const formData = { ...data, orders: [...orders, newOrder] };
+    const formData = {
+      ...data,
+      address,
+      location: user_location,
+      orders: [...orders, newOrder],
+    };
 
-    if (!id) {
+    if (!user_id) {
       await dispatch(sendFirstOrder(formData))
         .unwrap()
         .then(() => notify());
     }
 
-    if (id) {
-      await dispatch(sendOrderWithUserId({ id, ...formData }))
+    if (user_id) {
+      await dispatch(sendOrderWithUserId({ id: user_id, ...formData }))
         .unwrap()
         .then(() => notify());
     }

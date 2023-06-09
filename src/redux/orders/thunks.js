@@ -8,7 +8,6 @@ export const sendFirstOrder = createAsyncThunk(
       const data = await API.orders.sendFirstOrder(formData);
       return data;
     } catch (error) {
-      console.log(error);
       return rejectWithValue(error);
     }
   }

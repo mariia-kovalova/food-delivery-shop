@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart, removeFromCart, setStore } from 'redux/cart/slice';
+import {
+  addToCart,
+  removeFromCart,
+  setStore,
+  setTotalPrice,
+} from 'redux/cart/slice';
 
 import { useCart } from 'hooks/useCart';
 import { useOneStore } from 'hooks/useOneStore';
@@ -22,31 +27,38 @@ import {
 
 export const Product = ({ product }) => {
   const [ableToAdd, setAbleToAdd] = useState(true);
+  const { items, store_name } = useCart();
+  const { name, location } = useOneStore();
 
-  const { items, store_name: cart_store_name } = useCart();
-  const { store_name, location } = useOneStore();
-
-  const { name, url, price, isInCart } = product;
+  const { name: tittle, url, price, isInCart } = product;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (items.length > 0 && store_name !== cart_store_name) setAbleToAdd(false);
-  }, [cart_store_name, items.length, store_name]);
+    if (items.length !== 0 && name !== store_name) setAbleToAdd(false);
+  }, [dispatch, items.length, name, store_name]);
 
   const handleToggleCart = () => {
-    if (items.length === 0) dispatch(setStore({ store_name, location }));
+    if (!isInCart) {
+      if (items.length === 0)
+        dispatch(setStore({ store_name: name, location }));
+      dispatch(addToCart(product));
+    }
 
-    if (isInCart) dispatch(removeFromCart(product));
-
-    if (!isInCart) dispatch(addToCart(product));
+    if (isInCart) {
+      if (items.length === 1) {
+        dispatch(setStore({ store_name: '', location: null }));
+        dispatch(setTotalPrice(0));
+      }
+      dispatch(removeFromCart(product));
+    }
   };
 
   return (
     <Wrap>
       <Info>
-        <Img src={url} width="164" height="164" loading="lazy" alt={name} />
-        <StyledH3>{productTittleNormalize(name)}</StyledH3>
+        <Img src={url} width="164" height="164" loading="lazy" alt={tittle} />
+        <StyledH3>{productTittleNormalize(tittle)}</StyledH3>
         <Price>{getPrice(price)}</Price>
         <Container>
           <Btn

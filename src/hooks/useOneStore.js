@@ -27,13 +27,13 @@ const slectItemsWithPriceAndIsInCart = createSelector(
 
 export const useOneStore = () => {
   const id = useSelector(selectStoreId);
-  const store_name = useSelector(selectStoreName);
+  const name = useSelector(selectStoreName);
   const location = useSelector(selectStoreLocation);
   const products = useSelector(slectItemsWithPriceAndIsInCart);
 
   return {
     id,
-    store_name,
+    name,
     location,
     products,
   };

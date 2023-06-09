@@ -1,7 +1,9 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useCart } from 'hooks/useCart';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectThemeMode } from 'redux/theme/selectors';
+import { getOrdersByUserId } from 'redux/orders/thunks';
 
 import { Footer } from 'modules/Footer';
 import { Header } from 'modules/Header';
@@ -10,7 +12,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const Layout = () => {
+  const { user_id } = useCart();
   const mode = useSelector(selectThemeMode);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user_id) dispatch(getOrdersByUserId(user_id));
+  }, [dispatch, user_id]);
 
   return (
     <Wrap>
